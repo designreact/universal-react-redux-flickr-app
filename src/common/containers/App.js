@@ -1,3 +1,5 @@
+import '../../scss/main.scss'
+
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
@@ -11,7 +13,7 @@ export default class App extends Component {
         const { config, strings } = this.props
 
         return (
-            <div>
+            <div className="app-content">
                 <Header strings={strings} config={config}/>
                 <PhotoList />
                 <Footer strings={strings} config={config}/>

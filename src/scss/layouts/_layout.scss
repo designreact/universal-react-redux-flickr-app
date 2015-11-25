@@ -2,6 +2,13 @@
   height: 100%;
   width: 90%;
   margin: 0 5%;
-  padding: 5%;
-  box-sizing: content-box;
+  padding: 2% 5%;
+  box-sizing: border-box;
+}
+.app-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
 }

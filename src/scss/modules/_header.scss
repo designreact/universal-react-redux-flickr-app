@@ -1,3 +1,14 @@
 .header {
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-flickr-logo {
+  width: 160px;
+  height: 49px;
+  overflow: hidden;
+  text-indent: 170px;
+  white-space: nowrap;
+  background: url(../static/images/flickr-logo.svg);
+  background-size: 160px 49px;
 }

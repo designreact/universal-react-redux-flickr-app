@@ -13,7 +13,8 @@ module.exports = {
             },
             { test: /\.json$/, loader: 'json-loader', exclude: /(node_modules|__tests__)/  },
             { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/, loader: "file", exclude: /(node_modules|__tests__)/  },
-            { test: /\.html/, loader: 'file?name=[name].[ext]', exclude: /(node_modules|__tests__)/  }
+            { test: /\.html/, loader: 'file?name=[name].[ext]', exclude: /(node_modules|__tests__)/  },
+            { test: /\.scss$/, loader: "style!css!sass" }
         ]
     },
     output: {
