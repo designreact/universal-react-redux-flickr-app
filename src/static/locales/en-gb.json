@@ -1,0 +1,9 @@
+{
+  "header": {
+    "searchInputText": "Search for images..."
+  },
+  "footer": {
+    "gitHubLinkText": "View project on GitHub",
+    "websiteLinkText": "designreact.co.uk"
+  }
+}
