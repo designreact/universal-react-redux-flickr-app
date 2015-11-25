@@ -7,9 +7,11 @@ import PhotoList from '../components/PhotoList'
 export default class App extends Component {
     render() {
         return (
-            <Header />
-            <PhotoList />
-            <Footer />
+            <div>
+                <Header />
+                <PhotoList />
+                <Footer />
+            </div>
         )
     }
 }

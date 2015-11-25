@@ -1,7 +1,8 @@
 {
   "header": {
-    "searchInputText": "Search for images..."
-    "searchButtonText": "Submit"
+    "searchInputText": "Search for images...",
+    "searchButtonText": "Submit",
+    "flickrCta": "Go to Flickr Homepage"
   },
   "footer": {
     "gitHubLinkText": "View project on GitHub",
