@@ -1,6 +1,7 @@
 {
   "header": {
     "searchInputText": "Search for images..."
+    "searchButtonText": "Submit"
   },
   "footer": {
     "gitHubLinkText": "View project on GitHub",
