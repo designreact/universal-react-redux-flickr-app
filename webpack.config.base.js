@@ -16,6 +16,10 @@ module.exports = {
             { test: /\.html/, loader: 'file?name=[name].[ext]', exclude: /(node_modules|__tests__)/  }
         ]
     },
+    output: {
+        library: 'Redux',
+        libraryTarget: 'umd'
+    },
     resolve: {
         extensions: ['', '.js']
     }

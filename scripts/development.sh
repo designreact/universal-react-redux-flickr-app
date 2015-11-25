@@ -20,6 +20,9 @@ mkdir build
 echo "[INFO]   Copying index.html, continuing...";
 cp ./src/client/index.html ./build
 
+echo "[INFO]   Sync static files, continuing...";
+rsync -r ./src/static/ ./build
+
 # =============================================
 # Start webpack
 # =============================================

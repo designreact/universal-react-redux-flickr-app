@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash')
 var webpack = require('webpack')
 var baseConfig = require('./webpack.config.base')
 
@@ -12,9 +13,9 @@ config.plugins = [
 ]
 
 config.entry = './src/client/index'
-config.output = {
+config.output = _.extend({
     path: './build',
     filename: 'bundle.js'
-}
+}, config.output);
 
 module.exports = config
