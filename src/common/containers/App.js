@@ -14,8 +14,8 @@ export default class App extends Component {
 
         return (
             <div className="app-content">
-                <Header strings={strings} config={config}/>
-                <PhotoList />
+                <Header strings={strings} config={config} onPhotoSearch={(text) => dispatch(photoSearch(text))}/>
+                <PhotoList onFetchPhotos={(page) => dispatch(fetchPhotos(page))}/>
                 <Footer strings={strings} config={config}/>
             </div>
         )
