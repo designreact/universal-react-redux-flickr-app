@@ -23,8 +23,15 @@ function getPhotos (string, page = 0) {
     )
 }
 
+//cors
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 //routes
-app.get('/api/v1/search', function(req, res) {
+app.get('/api/v1/search', function(req, res, next) {
     getPhotos(req.query.string, req.query.page).then(
         (photos) => res.send(photos)
     )

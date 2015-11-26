@@ -3,11 +3,24 @@ import React, { Component, PropTypes } from 'react'
 export default class Header extends Component {
     render() {
         let strings = this.props.strings
+        let onPhotoSearch = this.props.onPhotoSearch
+        let onUpdatePhotoSearchString = this.props.onUpdatePhotoSearchString
         return (
             <div className="header">
                 <div className="header-search">
-                    <form id="flickr-search">
-                        <input type="text" className="header-flickr-search-input" maxLength="40" placeholder={strings.header.searchInputText} />
+                    <form id="flickr-search"
+                          onSubmit={e => {
+                            e.preventDefault()
+                            onPhotoSearch()
+                          }}>
+                        <input id="flickr-search-string"
+                               type="text"
+                               className="header-flickr-search-input"
+                               maxLength="40"
+                               placeholder={strings.header.searchInputText}
+                               onChange={ e => {
+                                 onUpdatePhotoSearchString(e.target.value)
+                               }}/>
                         <input type="submit" className="header-flickr-search-button" value={strings.header.searchButtonText} />
                     </form>
                 </div>

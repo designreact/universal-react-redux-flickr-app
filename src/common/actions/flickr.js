@@ -11,20 +11,27 @@ function requestPhotos(data = {}) {
 function receivePhotos(data = {}) {
     return {
         type: types.RECEIVE_PHOTOS,
-        strings: data
+        photos: data
     }
 }
 
-export function photoSearch(text) {
+export function updatePhotoSearchString(text = '') {
+    return {
+        type: types.UPDATE_PHOTO_SEARCH_STRING,
+        string: text
+    }
+}
+
+export function photoSearch(config, text) {
     return dispatch => {
         dispatch(requestPhotos())
-        return fetch()
+        return fetch(config.serverUrl + 'search?string=' + encodeURIComponent(text))
             .then(response => response.json())
             .then(json => dispatch(receivePhotos(json)))
     }
 }
 
-export function fetchPhotos(page) {
+export function fetchPhotos(config, page) {
     return dispatch => {
         dispatch(requestPhotos())
         return fetch()

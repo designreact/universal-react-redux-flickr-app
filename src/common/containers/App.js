@@ -7,15 +7,21 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PhotoList from '../components/PhotoList'
 
+import { updatePhotoSearchString, photoSearch, fetchPhotos } from '../actions/flickr'
+
 export default class App extends Component {
 
     render() {
-        const { config, strings } = this.props
+        const { dispatch, config, strings, searchString } = this.props
 
         return (
             <div className="app-content">
-                <Header strings={strings} config={config} onPhotoSearch={(text) => dispatch(photoSearch(text))}/>
-                <PhotoList onFetchPhotos={(page) => dispatch(fetchPhotos(page))}/>
+                <Header strings={strings}
+                        config={config}
+                        onPhotoSearch={() => dispatch(photoSearch(config, searchString))}
+                        onUpdatePhotoSearchString={(string) => dispatch(updatePhotoSearchString(string))}
+                />
+                <PhotoList/>
                 <Footer strings={strings} config={config}/>
             </div>
         )
@@ -30,7 +36,8 @@ App.propTypes = {
 function mapStateToProps(state) {
     return {
         config: state.configuration,
-        strings: state.configuration.strings
+        strings: state.configuration.strings,
+        searchString: state.flickr.searchString
     }
 }
 
