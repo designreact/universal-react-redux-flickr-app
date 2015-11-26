@@ -12,7 +12,7 @@ import { updatePhotoSearchString, photoSearch, fetchPhotos } from '../actions/fl
 export default class App extends Component {
 
     render() {
-        const { dispatch, config, strings, searchString } = this.props
+        const { dispatch, config, strings, searchString, photos} = this.props
 
         return (
             <div className="app-content">
@@ -21,7 +21,7 @@ export default class App extends Component {
                         onPhotoSearch={() => dispatch(photoSearch(config, searchString))}
                         onUpdatePhotoSearchString={(string) => dispatch(updatePhotoSearchString(string))}
                 />
-                <PhotoList/>
+                <PhotoList photos={photos}/>
                 <Footer strings={strings} config={config}/>
             </div>
         )
@@ -37,7 +37,8 @@ function mapStateToProps(state) {
     return {
         config: state.configuration,
         strings: state.configuration.strings,
-        searchString: state.flickr.searchString
+        searchString: state.flickr.searchString,
+        photos: state.flickr.photos
     }
 }
 
