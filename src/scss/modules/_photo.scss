@@ -3,11 +3,17 @@
 }
 .photo-list {
   display: block;
+  margin: 20px 0;
   box-sizing: border-box;
-  padding: 20px 0;
+  overflow: scroll;
 }
+.photo-list-photos {
+  margin: 0 auto;
+}
+
 .photo-thumb {
   display: inline-block;
   float: left;
+  margin: 0 10px 10px 0;
   line-height: 0;
 }

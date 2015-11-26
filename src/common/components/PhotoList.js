@@ -8,15 +8,18 @@ export default class PhotoList extends Component {
         let photos;
         if (this.props.photos) {
             photos = this.props.photos.photo.map((photo, index) =>
-                    <PhotoThumb {...photo}
-                        key={index}
-                        />
-                )
+                <PhotoThumb {...photo}
+                    key={index}
+                />
+            )
         }
 
         return (
+
             <div className="photo-list">
-                {photos}
+                <div className="photo-list-photos">
+                    {photos}
+                </div>
             </div>
         )
     }
