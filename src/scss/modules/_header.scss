@@ -3,12 +3,39 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
 .header-flickr-logo {
-  width: 160px;
-  height: 49px;
+  width: $logo-width;
+  height: $logo-height;
   overflow: hidden;
   text-indent: 170px;
   white-space: nowrap;
   background: url(../static/images/flickr-logo.svg);
-  background-size: 160px 49px;
+  background-size: $logo-width $logo-height;
+}
+
+.header-flickr-search-input {
+  width: 280px;
+  padding: 10px 10px 8px 10px;
+  border: none;
+  border-bottom: solid 2px $color-input-underline;
+  border-radius: $radius-input;
+  background: $color-input;
+  transition: border 0.3s;
+}
+.header-flickr-search-input:focus {
+  border-bottom: solid 2px $color-input-underline-focus;
+}
+.header-flickr-search-button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border:0 none;
+  border-radius: $radius-input;
+  background: $color-input-submit;
+  color: $color-input-submit-text;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+.header-flickr-search-button:hover {
+  background: $color-input-submit-hover;
 }
