@@ -31,11 +31,21 @@ export function photoSearch(config, text) {
     }
 }
 
-export function fetchPhotos(config, page) {
+export function fetchPhotos(config, flickr) {
+    let page = flickr.photos.page + 1
     return dispatch => {
         dispatch(requestPhotos())
-        return fetch()
+        return fetch(config.serverUrl +
+                    'search?string=' + encodeURIComponent(flickr.searchString) +
+                    '&page=' + page)
             .then(response => response.json())
-            .then(json => dispatch(receivePhotos(json)))
+            .then(json => {
+
+                //todo confirm correct place to handle concat logic
+                let photo = flickr.photos.photo
+                if (photo.length) json.photo = photo.concat(json.photo)
+
+                dispatch(receivePhotos(json))
+            })
     }
 }

@@ -7,12 +7,12 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PhotoList from '../components/PhotoList'
 
-import { updatePhotoSearchString, photoSearch, fetchPhotos } from '../actions/flickr'
+import { updatePhotoSearchString, photoSearch, fetchPhotos} from '../actions/flickr'
 
 export default class App extends Component {
 
     render() {
-        const { dispatch, config, strings, searchString, photos} = this.props
+        const { dispatch, config, strings, searchString, flickr} = this.props
 
         return (
             <div className="app-content">
@@ -21,7 +21,8 @@ export default class App extends Component {
                         onPhotoSearch={() => dispatch(photoSearch(config, searchString))}
                         onUpdatePhotoSearchString={(string) => dispatch(updatePhotoSearchString(string))}
                 />
-                <PhotoList photos={photos}/>
+                <PhotoList flickr={flickr}
+                           fetchPhotos={() => dispatch(fetchPhotos(config, flickr))}/>
                 <Footer strings={strings} config={config}/>
             </div>
         )
@@ -38,7 +39,7 @@ function mapStateToProps(state) {
         config: state.configuration,
         strings: state.configuration.strings,
         searchString: state.flickr.searchString,
-        photos: state.flickr.photos
+        flickr: state.flickr
     }
 }
 

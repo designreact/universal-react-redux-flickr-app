@@ -2,9 +2,10 @@ import React, { Component, PropTypes } from 'react'
 
 export default class Header extends Component {
     render() {
-        let strings = this.props.strings
-        let onPhotoSearch = this.props.onPhotoSearch
-        let onUpdatePhotoSearchString = this.props.onUpdatePhotoSearchString
+        let strings = this.props.strings,
+            onPhotoSearch = this.props.onPhotoSearch,
+            onUpdatePhotoSearchString = this.props.onUpdatePhotoSearchString
+
         return (
             <div className="header">
                 <div className="header-search">
