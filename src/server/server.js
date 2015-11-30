@@ -16,7 +16,6 @@ function getPhotos (string, page = 0) {
                     console.log(err)
                     reject(err)
                 }
-                console.log(result.photos)
                 resolve(result.photos)
             })
         }

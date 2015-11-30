@@ -9,6 +9,6 @@ export default class PhotoThumb extends Component {
             this.props.id + '_' +
             this.props.secret + '_q.jpg'
 
-        return (<div className="photo-thumb"><img src={url} /></div>)
+        return (<div className="photo-list-thumb"><img src={url} /></div>)
     }
 }

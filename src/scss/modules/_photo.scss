@@ -20,7 +20,7 @@
   bottom: 0;
   width: 100%;
   height: 100px;
-  background: rgba($color-input, .5);
+  background: linear-gradient(rgba($color-input, .0), rgba($color-input, .9) 30%);
   text-align: center;
   line-height: 100px;
   color: $color-highlight;
@@ -29,9 +29,12 @@
   margin: 0 auto;
 }
 
-.photo-thumb {
+.photo-list-thumb {
   display: inline-block;
   float: left;
+  width: 150px;
+  height: 150px;
   margin: 0 10px 10px 0;
+  background: rgba($flickr-blue, .1);
   line-height: 0;
 }

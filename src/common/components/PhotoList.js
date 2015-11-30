@@ -20,14 +20,15 @@ export default class PhotoList extends Component {
             <div className="photo-list-loading-strip">Loading photos, please wait...</div>
         )
 
+        //todo jump to top when new search is performed
+        //todo distribute or center thumbs in list-content
+
         return (
             <div className="photo-list">
                 <div className="photo-list-content"
                      onScroll={(e) => {
                         let currentScroll = e.target.scrollTop + e.target.clientHeight,
                             scrollHeight = e.target.scrollHeight
-
-                        console.log(currentScroll, scrollHeight);
 
                         if (currentScroll + 150 > scrollHeight) {
                             fetchPhotos();
