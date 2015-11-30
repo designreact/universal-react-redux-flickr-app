@@ -8,6 +8,8 @@ export default function flickr(state = {}, action) {
             return Object.assign({}, state, {requesting:true})
         case types.RECEIVE_PHOTOS:
             return Object.assign({}, state, {photos:action.photos, requesting:false})
+        case types.SHOW_PHOTO:
+            return Object.assign({}, state, {currentPhoto: action.currentPhoto})
         default:
             return state
     }

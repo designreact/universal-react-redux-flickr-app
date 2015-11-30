@@ -7,8 +7,14 @@ export default class PhotoThumb extends Component {
             this.props.farm + '.staticflickr.com/' +
             this.props.server + '/' +
             this.props.id + '_' +
-            this.props.secret + '_q.jpg'
+            this.props.secret,
+            displayPhoto = this.props.displayPhoto
 
-        return (<div className="photo-list-thumb"><img src={url} /></div>)
+        return (
+            <div className="photo-list-thumb"
+                 onClick={()=>{displayPhoto(url + '_c.jpg', true)}}>
+                <img src={url + '_q.jpg'} />
+            </div>
+        )
     }
 }

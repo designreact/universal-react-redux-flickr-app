@@ -22,6 +22,16 @@ export function updatePhotoSearchString(text = '') {
     }
 }
 
+export function displayPhoto(url, show) {
+    return {
+        type: types.SHOW_PHOTO,
+        currentPhoto: {
+            url:url,
+            show: show
+        }
+    }
+}
+
 export function photoSearch(config, text) {
     return dispatch => {
         dispatch(requestPhotos())

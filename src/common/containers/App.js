@@ -7,7 +7,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PhotoList from '../components/PhotoList'
 
-import { updatePhotoSearchString, photoSearch, fetchPhotos} from '../actions/flickr'
+import { updatePhotoSearchString, photoSearch, fetchPhotos, displayPhoto} from '../actions/flickr'
 
 export default class App extends Component {
 
@@ -15,14 +15,18 @@ export default class App extends Component {
         const { dispatch, config, strings, searchString, flickr} = this.props
 
         return (
-            <div className="app-content">
+            <div className="app-content"
+                 onClick={()=>{
+                    if(flickr.currentPhoto && flickr.currentPhoto.show) dispatch(displayPhoto(null, false))
+                 }}>
                 <Header strings={strings}
                         config={config}
                         onPhotoSearch={() => dispatch(photoSearch(config, searchString))}
                         onUpdatePhotoSearchString={(string) => dispatch(updatePhotoSearchString(string))}
                 />
                 <PhotoList flickr={flickr}
-                           fetchPhotos={() => dispatch(fetchPhotos(config, flickr))}/>
+                           fetchPhotos={() => dispatch(fetchPhotos(config, flickr))}
+                           displayPhoto={(url, show) => dispatch(displayPhoto(url, show))}/>
                 <Footer strings={strings} config={config}/>
             </div>
         )

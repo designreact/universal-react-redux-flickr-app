@@ -5,16 +5,25 @@ export default class PhotoList extends Component {
 
     render() {
 
-        let photos, loadingStrip,
-            fetchPhotos = this.props.fetchPhotos
+        let photos, loadingStrip, photoPreview,
+            fetchPhotos = this.props.fetchPhotos,
+            displayPhoto = this.props.displayPhoto,
+            currentPhoto = this.props.flickr.currentPhoto
 
         if (this.props.flickr.photos) {
             photos = this.props.flickr.photos.photo.map((photo, index) =>
                 <PhotoThumb {...photo}
                     key={index}
+                    displayPhoto={displayPhoto}
                 />
             )
         }
+
+        if(currentPhoto && currentPhoto.show) photoPreview =   (<div className="photo-preview">
+                                                                    <div className="photo-preview-content">
+                                                                        <img src={currentPhoto.url} />
+                                                                    </div>
+                                                                </div>)
 
         if (this.props.flickr.requesting) loadingStrip = (
             <div className="photo-list-loading-strip">Loading photos, please wait...</div>
@@ -24,7 +33,7 @@ export default class PhotoList extends Component {
         //todo distribute or center thumbs in list-content
 
         return (
-            <div className="photo-list">
+            <div className="photo-list" ref="photoList">
                 <div className="photo-list-content"
                      onScroll={(e) => {
                         let currentScroll = e.target.scrollTop + e.target.clientHeight,
@@ -39,6 +48,7 @@ export default class PhotoList extends Component {
                         {photos}
                     </div>
                 </div>
+                {photoPreview}
                 {loadingStrip}
             </div>
         )
