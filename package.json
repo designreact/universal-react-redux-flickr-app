@@ -16,7 +16,8 @@
     "test": "./scripts/test.sh",
     "dev": "./scripts/development.sh",
     "build": "./scripts/production.sh",
-    "server": "./scripts/server.sh"
+    "server": "./scripts/server.sh",
+    "flickr": "./scripts/flickr.sh"
   },
   "dependencies": {
     "babel": "^6.1.18",

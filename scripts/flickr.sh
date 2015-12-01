@@ -21,6 +21,6 @@ mkdir server
 # Start webpack
 # =============================================
 
-webpack --content-base server/ --config webpack.config.server.js --progress
+webpack --content-base server/ --config webpack.config.flickr.js --progress
 cd ./server
-node server
+node flickr
